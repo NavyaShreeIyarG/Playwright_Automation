@@ -1,12 +1,12 @@
 import {test, expect} from '@playwright/test'
 
-test.only('Demo Login Test 1', async ({page}) => {
+test('Demo Login Test 1', async ({page}) => {
     await page.goto('https://demo.applitools.com/')
     // await page.pause()
     await page.locator('[placeholder="Enter your username"]').fill('Ram')
     await page.locator('[placeholder="Enter your password"]').fill('1234')
 
-    await page.waitForSelector('a.btn.btn-primary', {timeout : 5000})
+    await page.waitForSelector('a.btn.btn-primary', {timeout : 10000})
     await page.locator('a.btn.btn-primary').click()
 
 })
@@ -25,7 +25,7 @@ test('Demo Login Test 2', async ({page}) => {
 
 })
 
-test('Demo Login Test 3', async ({page}) => {
+test.only('Demo Login Test 3', async ({page}) => {
     await page.pause();
     await page.goto('https://admin-demo.nopcommerce.com/login');
     await page.getByRole('textbox', { name: 'Email:' }).click();
